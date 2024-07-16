@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="ica_money_changer_root" name="ICA" sequence="0">
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="ica_money_manager_category" name="Money Manager"
+                  action="ica_money_changer.ica_money_changer_action" sequence="0"/>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="configuration_categ" name="Configuration" sequence="1">
+            <!-- This Menu Item must have a parent and an action -->
+            <menuitem id="currencies_categ" name="Currencies" action="base.action_currency_form" sequence="0"/>
+        </menuitem>
+    </menuitem>
+</odoo>
