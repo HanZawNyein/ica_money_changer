@@ -20,12 +20,10 @@ export class NavbarComponent extends Component {
     }
 
     gotoHome() {
-        console.log(this.props)
         this.props.switchScreen('home_screen');
     }
 
     gotoTransactionsScreen() {
-        console.log(this.props)
         this.props.switchScreen('transactions_screen');
     }
 
