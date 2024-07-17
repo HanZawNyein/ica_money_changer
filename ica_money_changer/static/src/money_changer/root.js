@@ -1,5 +1,5 @@
 /** @odoo-module */
-import {Component, useState} from "@odoo/owl";
+import {Component, useState,onWillStart} from "@odoo/owl";
 import {registry} from "@web/core/registry";
 import {session} from "@web/session";
 
@@ -13,10 +13,18 @@ export class Root extends Component {
         });
         this.routerService = this.env.services.router;
         this.switchScreen = this.switchScreen.bind(this);
+        onWillStart(async()=>{
+            this.getInitScreen();
+        })
     }
 
     getInitScreen() {
-        this.state.mainScreen = session.uid ? 'home_screen' : 'auth_screen';
+        this.state.mainScreen = session.user_id ? 'home_screen' : 'auth_screen';
+        if(session.user_id){
+            this.switchScreen(this.routerService.current.hash.route)
+        }else{
+            this.switchScreen('auth_screen');
+        }
     }
 
     switchScreen(screenName) {
