@@ -1,5 +1,5 @@
 /** @odoo-module */
-import {Component, useState,onWillStart} from "@odoo/owl";
+import {Component, onWillStart, useState} from "@odoo/owl";
 import {registry} from "@web/core/registry";
 import {session} from "@web/session";
 
@@ -13,25 +13,26 @@ export class Root extends Component {
         });
         this.routerService = this.env.services.router;
         this.switchScreen = this.switchScreen.bind(this);
-        onWillStart(async()=>{
+        onWillStart(async () => {
             this.getInitScreen();
         })
     }
 
     getInitScreen() {
         this.state.mainScreen = session.user_id ? 'home_screen' : 'auth_screen';
-        if(session.user_id){
+        if (session.user_id) {
             this.switchScreen(this.routerService.current.hash.route)
-        }else{
+        } else {
             this.switchScreen('auth_screen');
         }
     }
 
     switchScreen(screenName) {
-        this.state.currentScreen = screenName;
+        this.state.mainScreen = screenName;
     }
 
     getComponent() {
+        console.log(this.state.mainScreen)
         this.routerService.pushState({route: this.state.mainScreen});
         return registry.category("ica_money_changer").get(this.state.mainScreen);
     }

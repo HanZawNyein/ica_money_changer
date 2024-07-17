@@ -14,3 +14,12 @@ $fourthColor: #FFB1B1 !important;
 .navbar-brand, .nav-link {
   color: white !important;
 }
+
+.bg-primary,.btn-primary {
+  background-color: $firstColor;
+  color: white !important;
+}
+
+.text-primary{
+    color: $firstColor;
+}
