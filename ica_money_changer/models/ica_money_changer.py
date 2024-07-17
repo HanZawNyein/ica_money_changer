@@ -33,6 +33,13 @@ class IcaMoneyChanger(models.Model):
     def action_cancel(self):
         self.state = 'cancel'
 
+    def _action_open_kiosk_mode(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'self',
+            'url': '/ica-money-changer',
+        }
+
 
 class IcaMoneyChangerLine(models.Model):
     _name = 'ica.money.changer.line'

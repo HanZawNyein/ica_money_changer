@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ica_money_changer.navbar_component">
+        <nav class="navbar navbar-expand-lg bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                      aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+              </ul>
+                  <div class="d-flex">
+                      <img t-attf-src="/web/image?model=res.users&amp;field=avatar_128&amp;id=#{state.currentUser.id}"
+                           class="rounded-0 me-1" height="50"/>
+                      <div class="text-start">
+                          <p class="m-0" t-out="state.currentUser.name"/>
+                          <p class="m-0">Logout</p>
+                      </div>
+
+                      <!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>-->
+                      <!--                <button class="btn btn-outline-success" type="submit">Search</button>-->
+              </div>
+            </div>
+          </div>
+        </nav>
+    </t>
+</templates>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ica_money_changer.home_screen">
+        <NavbarComponent/>
+        <div class="container">
+            <div class="alert alert-primary text-center m-3" role="alert">
+              <h6>Main Currency is <b><i>USD</i></b>.</h6>
+            </div>
+            <table class="table shadow p-3 mb-5 bg-body rounded">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Inverse Rate</th>
+                <th scope="col">Rate</th>
+            </tr>
+          </thead>
+                <tbody>
+                  <t t-foreach="state.currencies" t-as="currency" t-key="currency.id">
+                      <tr>
+                          <th scope="row" t-esc="currency.name"/>
+                          <td t-out="currency.full_name"/>
+                          <td t-out="currency.inverse_rate"/>
+                          <td t-out="currency.rate"/>
+                      </tr>
+                  </t>
+
+          </tbody>
+        </table>
+        </div>
+    </t>
+</templates>
