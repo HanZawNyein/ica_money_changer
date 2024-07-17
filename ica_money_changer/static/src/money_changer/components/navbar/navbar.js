@@ -12,24 +12,28 @@ export class NavbarComponent extends Component {
             currentPartner: null,
         });
         this.ormService = this.env.services.orm;
+        this.rpcService = this.env.services.rpc;
         this.userService = this.env.services.user;
         onWillStart(async () => {
             await this.getUser();
         });
     }
 
-    gotoHome(){
+    gotoHome() {
         this.props.switchScreen('home_Screen');
-        console.log(this.props)
+        this.rpcService.console.log(this.props)
     }
 
-    logout(){
-        this.props.switchScreen('auth_screen');
-        console.log(this.cookie);
+    async logout() {
+        const result = await this.rpcService('/ica/logout');
+        if (result.isFullFilled) {
+            this.props.switchScreen('auth_screen');
+        }
     }
+
     async getUser() {
-        let currentUser  = await this.ormService.searchRead('res.users', [['id', '=', session.user_id]], ['id', 'name', 'partner_id']);
-        this.state.currentUser=currentUser[0];
+        let currentUser = await this.ormService.searchRead('res.users', [['id', '=', session.user_id]], ['id', 'name', 'partner_id']);
+        this.state.currentUser = currentUser[0];
         let currentPartner = await this.ormService.searchRead('res.partner', [['id', '=', this.state.currentUser.partner_id[0]]], ['id', 'name']);
         this.state.currentPartner = currentPartner[0];
     }

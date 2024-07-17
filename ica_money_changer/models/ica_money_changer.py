@@ -37,7 +37,7 @@ class IcaMoneyChanger(models.Model):
         return {
             'type': 'ir.actions.act_url',
             'target': 'self',
-            'url': '/ica-money-changer',
+            'url': '/ica/ica-money-changer',
         }
 
 
