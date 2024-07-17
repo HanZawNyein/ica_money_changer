@@ -7,7 +7,7 @@ import {NavbarComponent} from "../../components/navbar/navbar";
 
 export class HomeScreen extends Component {
     static template = "ica_money_changer.home_screen";
-    static props = {};
+    static props = ["switchScreen"];
     static  components = {NavbarComponent};
 
     setup() {
@@ -17,7 +17,11 @@ export class HomeScreen extends Component {
         this.ormService = this.env.services.orm;
         onWillStart(async () => {
             await this.getCurrencies();
-        })
+        });
+        this.click = this.click.bind(this);
+    }
+    click(){
+        console.log(this.props)
     }
 
     async getCurrencies() {

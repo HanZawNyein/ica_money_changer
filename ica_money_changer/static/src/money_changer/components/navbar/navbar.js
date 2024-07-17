@@ -5,7 +5,6 @@ import {session} from "@web/session";
 
 export class NavbarComponent extends Component {
     static template = "ica_money_changer.navbar_component";
-    static props = {};
 
     setup() {
         this.state = useState({
@@ -16,7 +15,12 @@ export class NavbarComponent extends Component {
         this.userService = this.env.services.user;
         onWillStart(async () => {
             await this.getUser();
-        })
+        });
+    }
+
+    gotoHome(){
+        this.props.switchScreen('home_Screen');
+        // console.log(this.props)
     }
 
     async getUser() {

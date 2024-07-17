@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
     <t t-name="ica_money_changer.home_screen">
-        <NavbarComponent/>
+        <NavbarComponent t-props="props"/>
         <div class="container">
             <div class="alert alert-primary text-center m-3" role="alert">
               <h6>Main Currency is <b><i>USD</i></b>.</h6>
