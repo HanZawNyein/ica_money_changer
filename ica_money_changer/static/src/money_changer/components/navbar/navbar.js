@@ -20,7 +20,7 @@ export class NavbarComponent extends Component {
 
     gotoHome(){
         this.props.switchScreen('home_Screen');
-        // console.log(this.props)
+        console.log(this.props)
     }
 
     async getUser() {
