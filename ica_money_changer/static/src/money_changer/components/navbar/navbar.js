@@ -23,6 +23,10 @@ export class NavbarComponent extends Component {
         console.log(this.props)
     }
 
+    logout(){
+        this.props.switchScreen('auth_screen');
+        console.log(this.cookie);
+    }
     async getUser() {
         let currentUser  = await this.ormService.searchRead('res.users', [['id', '=', session.user_id]], ['id', 'name', 'partner_id']);
         this.state.currentUser=currentUser[0];

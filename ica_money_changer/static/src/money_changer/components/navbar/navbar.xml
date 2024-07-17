@@ -17,7 +17,7 @@
                      t-on-click="gotoHome">Home</a>
                 </li>
               </ul>
-                  <div class="d-flex">
+                  <div class="d-flex" t-on-click="logout">
                       <img t-attf-src="/web/image?model=res.users&amp;field=avatar_128&amp;id=#{state.currentUser.id}"
                            class="rounded-0 me-1" height="50"/>
                       <div class="text-start">

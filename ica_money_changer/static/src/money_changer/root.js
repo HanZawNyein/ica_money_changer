@@ -28,11 +28,13 @@ export class Root extends Component {
     }
 
     switchScreen(screenName) {
-        this.state.mainScreen = screenName;
+        const content = registry.category("ica_money_changer").content;
+        if (content.hasOwnProperty(screenName)) {
+            this.state.mainScreen = screenName;
+        }
     }
 
     getComponent() {
-        console.log(this.state.mainScreen)
         this.routerService.pushState({route: this.state.mainScreen});
         return registry.category("ica_money_changer").get(this.state.mainScreen);
     }
