@@ -20,8 +20,13 @@ export class NavbarComponent extends Component {
     }
 
     gotoHome() {
-        this.props.switchScreen('home_Screen');
-        this.rpcService.console.log(this.props)
+        console.log(this.props)
+        this.props.switchScreen('home_screen');
+    }
+
+    gotoTransactionsScreen() {
+        console.log(this.props)
+        this.props.switchScreen('transactions_screen');
     }
 
     async logout() {
