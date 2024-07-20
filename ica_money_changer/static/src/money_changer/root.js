@@ -12,7 +12,7 @@ export class Root extends Component {
             "mainScreen": "home_screen"
         });
         this.routerService = this.env.services.router;
-        this.switchScreen = this.switchScreen.bind(this);
+        // this.switchScreen = this.switchScreen.bind(this);
         onWillStart(async () => {
             this.getInitScreen();
         })
